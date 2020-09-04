@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -181,16 +182,28 @@ class RegisterViewController: UIViewController {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
-        let email = emailField.text
-        let password = passwordField.text
-        let firstname = firstNameField.text
-        let lastname = lastNameField.text
+        let email = emailField.text!
+        let password = passwordField.text!
+        let firstname = firstNameField.text!
+        let lastname = lastNameField.text!
         
-        if email!.isEmpty || password!.isEmpty || lastname!.isEmpty || firstname!.isEmpty {
+        if email.isEmpty || password.isEmpty || lastname.isEmpty || firstname.isEmpty {
             alertUserLoginError()
         }
         
         //FIREBASE LOGIN
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
+            if error != nil && authResult != nil
+            {
+                print("Error creating user")
+            }
+            else
+            {
+                let user = authResult!.user
+                print("Created user: \(user)")
+            }
+            
+        })
     }
     
     func alertUserLoginError() {
