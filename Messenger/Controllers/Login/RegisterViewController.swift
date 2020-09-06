@@ -74,7 +74,7 @@ class RegisterViewController: UIViewController {
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
-        field.isSecureTextEntry = true
+//        field.isSecureTextEntry = true
         return field
     }()
     
@@ -192,23 +192,33 @@ class RegisterViewController: UIViewController {
         }
         
         //FIREBASE LOGIN
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
-            if error != nil && authResult != nil
-            {
-                print("Error creating user")
-            }
-            else
-            {
-                let user = authResult!.user
-                print("Created user: \(user)")
+        databaseManager.shared.userExists(email: email, completion: {exists in
+            guard !exists else{
+                self.alertUserLoginError(message: "User already exists with that email")
+                return
             }
             
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
+                if error != nil && authResult != nil
+                {
+                    print("Error creating user")
+                }
+                else
+                {
+                    databaseManager.shared.insertUser(user: chatAppUser(firstName: firstname,
+                                                                        lastName: lastname,
+                                                                        emailAddress: email))
+                    
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                }
+                
+            })
         })
     }
     
-    func alertUserLoginError() {
+    func alertUserLoginError(message: String = "Please enter all fields") {
         let alert = UIAlertController(title: "Woops",
-                                      message: "Please Enter all fields",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel,

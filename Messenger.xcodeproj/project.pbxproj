@@ -21,6 +21,7 @@
 		6FCBA03A24E971B300803224 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBA03924E971B300803224 /* VideoPlayerViewController.swift */; };
 		6FCBA03C24E971D300803224 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBA03B24E971D300803224 /* NewConversationViewController.swift */; };
 		6FCBA03E24E971E200803224 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCBA03D24E971E200803224 /* ProfileViewController.swift */; };
+		6FE405762505780900564D29 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE405752505780900564D29 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		6FCBA03924E971B300803224 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		6FCBA03B24E971D300803224 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		6FCBA03D24E971E200803224 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6FE405752505780900564D29 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				6FCBA01B24E96EBE00803224 /* AppDelegate.swift */,
 				6F7DF9202501B6B900EB3EA7 /* Extensions.swift */,
+				6FE405752505780900564D29 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				6FCBA03424E9715E00803224 /* LoginViewController.swift in Sources */,
 				6F7DF9212501B6B900EB3EA7 /* Extensions.swift in Sources */,
+				6FE405762505780900564D29 /* DatabaseManager.swift in Sources */,
 				6FCBA03C24E971D300803224 /* NewConversationViewController.swift in Sources */,
 				6FCBA01E24E96EBE00803224 /* ConversationsViewController.swift in Sources */,
 				6FCBA03824E9718A00803224 /* PhotoViewerViewController.swift in Sources */,

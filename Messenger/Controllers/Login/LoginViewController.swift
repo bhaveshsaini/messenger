@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  Messenger
-//
-//  Created by Bhavesh Saini on 8/16/20.
-//  Copyright © 2020 Bhavesh Saini. All rights reserved.
-//
-
 import UIKit
 import FirebaseAuth
 
@@ -140,8 +132,8 @@ class LoginViewController: UIViewController {
             }
             else
             {
-                let user = authResult?.user
-                print("Signed in: \(user)")
+//                let user = authResult?.user
+                self.navigationController?.dismiss(animated: true, completion: nil)
             }
         })
     }
