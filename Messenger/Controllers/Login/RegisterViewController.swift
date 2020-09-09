@@ -193,7 +193,7 @@ class RegisterViewController: UIViewController {
         
         //FIREBASE LOGIN
         databaseManager.shared.userExists(email: email, completion: {exists in
-            guard !exists else{
+            if exists {
                 self.alertUserLoginError(message: "User already exists with that email")
                 return
             }
@@ -217,7 +217,7 @@ class RegisterViewController: UIViewController {
     }
     
     func alertUserLoginError(message: String = "Please enter all fields") {
-        let alert = UIAlertController(title: "Woops",
+        let alert = UIAlertController(title: "Error",
                                       message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",

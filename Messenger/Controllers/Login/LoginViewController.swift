@@ -128,19 +128,18 @@ class LoginViewController: UIViewController {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {authResult, error in
             if authResult == nil
             {
-                print("Error logging in")
+                self.alertUserLoginError(message: "Login Error")
             }
             else
             {
-//                let user = authResult?.user
                 self.navigationController?.dismiss(animated: true, completion: nil)
             }
         })
     }
     
-    func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops",
-                                      message: "Please Enter all fields",
+    func alertUserLoginError(message: String = "Please enter all fields") {
+        let alert = UIAlertController(title: "Error",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel,

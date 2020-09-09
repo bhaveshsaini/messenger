@@ -11,9 +11,15 @@ import FirebaseAuth
 
 class ConversationsViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: 160, y: 285)
+        label.textAlignment = .center
+        label.text = "You are signed in"
+        view.addSubview(label)
         
     }
     
